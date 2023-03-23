@@ -1,0 +1,170 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+/* Navbar styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 20px;
+}
+
+/* Logo styling */
+.logo {
+  flex-shrink: 0;
+}
+
+.logo img {
+  height: 40px;
+}
+
+/* Main menu styling */
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.menu li {
+  position: relative;
+  margin: 0 10px;
+}
+
+.menu li:last-child {
+  margin-right: 0;
+}
+
+.menu li:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  width: 1px;
+  height: 14px;
+  background-color: #d8d8d8;
+  transform: translateY(-50%);
+}
+
+.menu li:first-child:before {
+  display: none;
+}
+
+.menu a {
+  color: #444;
+  text-decoration: none;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  height: 70px;
+}
+
+.menu a:hover {
+  color: #333;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  margin: 0;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu a {
+  color: #444;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+.dropdown-menu a:hover {
+  color: #333;
+  background-color: #f2f2f2;
+}
+
+/* Toggle button styling */
+.toggle {
+  display: none;
+}
+
+.toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #444;
+  margin-bottom: 5px;
+}
+
+/* Overlay styling */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+  
+  .toggle {
+    display: block;
+    cursor: pointer;
+  }
+  
+  .overlay {
+    display: block;
+  }
+  
+  .menu-item.dropdown > ul.dropdown-menu {
+    position: static;
+    display: none;
+    height: auto;
+    max-height: none;
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+  }
+  
+  .menu-item.dropdown.open > ul.dropdown-menu {
+    display: block;
+  }
+}
